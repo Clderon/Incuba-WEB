@@ -57,6 +57,42 @@
   --z-index-sticky: 200;
   --z-index-fixed: 300;
   --z-index-modal: 400;
+  /* ================================
+     DARK MODE VARIABLES 🌙
+     ================================ */
+  /* Colores oscuros principales - Material Design 3 */
+  --dark-bg-primary: #0f0f23;
+  --dark-bg-secondary: #1a1a2e;
+  --dark-bg-tertiary: #16213e;
+  
+  /* Superficies de tarjetas y contenedores */
+  --dark-surface: rgba(255, 255, 255, 0.05);
+  --dark-surface-hover: rgba(255, 255, 255, 0.1);
+  --dark-surface-active: rgba(255, 255, 255, 0.15);
+  
+  /* Textos - Material Design 3 */
+  --dark-text-primary: #e3f2fd;
+  --dark-text-secondary: #bbdefb;
+  --dark-text-muted: #90caf9;
+  
+  /* Bordes y divisores */
+  --dark-border: rgba(255, 255, 255, 0.1);
+  --dark-border-hover: rgba(255, 255, 255, 0.2);
+  
+  /* Sombras para dark mode */
+  --dark-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --dark-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
+  --dark-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
+  --dark-shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.6);
+  
+  /* Gradientes para dark mode - Material Design 3 */
+  --dark-gradient-primary: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  --dark-gradient-secondary: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+  
+  /* Acentos de color en dark mode - Material Design 3 */
+  --dark-accent-blue: #2196f3;
+  --dark-accent-green: #4caf50;
+  --dark-accent-purple: #9c27b0;
 }
 
 /* 
@@ -74,10 +110,23 @@ body {
   font-family: var(--font-body);
   color: var(--color-gray-900);
   overflow-x: hidden;
+  transition: background-color var(--transition-duration-normal) ease,
+              color var(--transition-duration-normal) ease;
+}
+
+/* 🌙 DARK MODE - Reset y estilos generales */
+body.dark {
+  background: var(--dark-bg-primary);
+  color: var(--dark-text-primary);
 }
 
 a {
   text-decoration: none;
+  transition: color var(--transition-duration-normal) ease;
+}
+
+body.dark a {
+  color: var(--dark-text-secondary);
 }
 
 ul {
@@ -88,6 +137,7 @@ button {
   cursor: pointer;
   border: none;
   background: none;
+  transition: all var(--transition-duration-normal) ease;
 }
 
 img {
@@ -98,12 +148,18 @@ img {
 
 i {
   font-size: 14px;
+  transition: color var(--transition-duration-normal) ease;
 }
 
 /* Main content para que no se superponga con el header fijo */
 .main-content {
   padding-top: 120px; /* Espacio para el header fijo */
   min-height: 100vh;
+  transition: background-color var(--transition-duration-normal) ease;
+}
+
+body.dark .main-content {
+  background: var(--dark-gradient-primary);
 }
 
 /* 
@@ -116,12 +172,35 @@ i {
 .contact {
   padding: 5rem 1rem;
   background: linear-gradient(50deg, #f8fafc 0%, #e2e8f0 100%);
+  position: relative;
+  overflow: hidden;
+  transition: background var(--transition-duration-normal) ease;
+}
+
+/* 🌙 DARK MODE - Contact Section */
+body.dark .contact {
+  background: var(--dark-gradient-primary);
+}
+
+body.dark .contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(33, 150, 243, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(76, 175, 80, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .contact__container {
   max-width: 1200px;
   margin: 0 auto;
   margin-top: 60px;
+  position: relative;
+  z-index: 2;
 }
 
 .contact__header {
@@ -138,6 +217,18 @@ i {
   position: relative;
   display: inline-block;
   font-family: var(--font-heading);
+  transition: all var(--transition-duration-normal) ease;
+}
+
+/* 🌙 DARK MODE - Contact Title */
+body.dark .contact__title {
+  color: #2196f3;
+  text-shadow: 0 0 30px rgba(33, 150, 243, 0.6),
+               0 4px 8px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #2196f3, #4caf50);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .contact__title::after {
@@ -150,6 +241,14 @@ i {
   height: 4px;
   background-color: var(--color-secondary);
   border-radius: 2px;
+  transition: all var(--transition-duration-normal) ease;
+}
+
+/* 🌙 DARK MODE - Contact Title After */
+body.dark .contact__title::after {
+  background: linear-gradient(90deg, #4caf50, #2196f3);
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.8),
+              0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .contact__subtitle {
@@ -160,6 +259,13 @@ i {
   margin-top: 1.5rem;
   margin-bottom: 6rem;
   font-family: var(--font-body);
+  transition: color var(--transition-duration-normal) ease;
+}
+
+/* 🌙 DARK MODE - Contact Subtitle */
+body.dark .contact__subtitle {
+  color: var(--dark-text-secondary);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .contact__content {
@@ -183,11 +289,41 @@ i {
   transform: translateY(20px);
   opacity: 0;
   animation: fadeInUp 0.6s ease forwards;
+  transition: all var(--transition-duration-normal) ease;
+  position: relative;
+}
+
+/* 🌙 DARK MODE - Contact Info */
+body.dark .contact__info {
+  background: var(--dark-surface);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--dark-border);
+  box-shadow: var(--dark-shadow-lg);
+}
+
+body.dark .contact__info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--dark-gradient-secondary);
+  opacity: 0;
+  transition: opacity var(--transition-duration-normal) ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+body.dark .contact__info:hover::before {
+  opacity: 1;
 }
 
 .contact__image-wrapper {
   height: 250px;
   overflow: hidden;
+  position: relative;
+  z-index: 2;
 }
 
 .contact__image {
@@ -197,8 +333,17 @@ i {
   transition: all 0.3s ease;
 }
 
+/* 🌙 DARK MODE - Contact Image */
+body.dark .contact__image {
+  filter: brightness(0.8) contrast(1.1);
+}
+
 .contact__info:hover .contact__image {
   transform: scale(1.05);
+}
+
+body.dark .contact__info:hover .contact__image {
+  filter: brightness(0.9) contrast(1.2);
 }
 
 .contact__details {
@@ -209,12 +354,26 @@ i {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+  transition: all var(--transition-duration-normal) ease;
+}
+
+/* 🌙 DARK MODE - Contact Details */
+body.dark .contact__details {
+  background: linear-gradient(135deg, #2196f3, #1976d2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .contact__detail-item {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
+  transition: transform var(--transition-duration-fast) ease;
+}
+
+body.dark .contact__detail-item:hover {
+  transform: translateX(5px);
 }
 
 .contact__icon-wrapper {
@@ -226,11 +385,46 @@ i {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: all var(--transition-duration-normal) ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🌙 DARK MODE - Contact Icon Wrapper */
+body.dark .contact__icon-wrapper {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.dark .contact__icon-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(45deg);
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+body.dark .contact__detail-item:hover .contact__icon-wrapper::before {
+  opacity: 1;
+  animation: shimmer 0.6s ease;
 }
 
 .contact__icon {
   font-size: 1.2rem;
   color: var(--color-secondary);
+  transition: all var(--transition-duration-normal) ease;
+}
+
+/* 🌙 DARK MODE - Contact Icon */
+body.dark .contact__icon {
+  color: #4caf50;
+  text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
 }
 
 .contact__detail-content {
@@ -242,6 +436,13 @@ i {
   font-weight: 600;
   margin-bottom: 0.5rem;
   font-family: var(--font-heading);
+  transition: color var(--transition-duration-normal) ease;
+}
+
+/* 🌙 DARK MODE - Contact Detail Title */
+body.dark .contact__detail-title {
+  color: #e3f2fd;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .contact__detail-text {
@@ -249,6 +450,13 @@ i {
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.4;
   font-family: var(--font-body);
+  transition: color var(--transition-duration-normal) ease;
+}
+
+/* 🌙 DARK MODE - Contact Detail Text */
+body.dark .contact__detail-text {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .contact__social {
@@ -272,11 +480,43 @@ i {
   color: var(--color-white);
   text-decoration: none;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🌙 DARK MODE - Contact Social Link */
+body.dark .contact__social-link {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.dark .contact__social-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
 }
 
 .contact__social-link:hover {
   background-color: var(--color-secondary);
   transform: translateY(-3px);
+}
+
+/* 🌙 DARK MODE - Contact Social Link Hover */
+body.dark .contact__social-link:hover {
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+  transform: translateY(-5px);
+}
+
+body.dark .contact__social-link:hover::before {
+  transform: translateX(100%);
 }
 
 /* Contact Form */
@@ -291,12 +531,43 @@ i {
   transform: translateY(20px);
   opacity: 0;
   animation: fadeInUp 0.6s ease forwards 0.2s;
+  transition: all var(--transition-duration-normal) ease;
+  position: relative;
+}
+
+/* 🌙 DARK MODE - Contact Form Container */
+body.dark .contact__form-container {
+  background: var(--dark-surface);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--dark-border);
+  box-shadow: var(--dark-shadow-lg);
+}
+
+body.dark .contact__form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--dark-gradient-secondary);
+  opacity: 0;
+  transition: opacity var(--transition-duration-normal) ease;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: var(--border-radius-lg);
+}
+
+body.dark .contact__form-container:hover::before {
+  opacity: 1;
 }
 
 .contact__form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  position: relative;
+  z-index: 2;
 }
 
 .contact__form-header {
@@ -308,6 +579,14 @@ i {
   color: var(--color-primary);
   font-weight: 600;
   font-family: var(--font-heading);
+  transition: all var(--transition-duration-normal) ease;
+}
+
+/* 🌙 DARK MODE - Contact Form Title */
+body.dark .contact__form-title {
+  color: #2196f3;
+  text-shadow: 0 0 20px rgba(33, 150, 243, 0.4),
+               0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .contact__form-row {
@@ -340,10 +619,31 @@ i {
   height: 4.3rem;
 }
 
+/* 🌙 DARK MODE - Contact Inputs */
+body.dark .contact__input,
+body.dark .contact__textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--dark-border);
+  color: var(--dark-text-primary);
+  backdrop-filter: blur(5px);
+}
+
+body.dark .contact__input:hover,
+body.dark .contact__textarea:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--dark-border-hover);
+}
+
 .contact__input::placeholder,
 .contact__textarea::placeholder {
   color: #94a3b8;
   font-size: 1.2rem;
+}
+
+/* 🌙 DARK MODE - Contact Placeholders */
+body.dark .contact__input::placeholder,
+body.dark .contact__textarea::placeholder {
+  color: var(--dark-text-muted);
 }
 
 .contact__textarea {
@@ -356,6 +656,14 @@ i {
   outline: none;
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(51, 102, 204, 0.2);
+}
+
+/* 🌙 DARK MODE - Contact Inputs Focus */
+body.dark .contact__input:focus,
+body.dark .contact__textarea:focus {
+  border-color: #2196f3;
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.3);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .contact__label {
@@ -371,6 +679,11 @@ i {
   font-size: 1.3rem;
 }
 
+/* 🌙 DARK MODE - Contact Labels */
+body.dark .contact__label {
+  color: var(--dark-text-muted);
+}
+
 .contact__input:focus ~ .contact__label,
 .contact__textarea:focus ~ .contact__label,
 .contact__input:not(:placeholder-shown) ~ .contact__label,
@@ -382,6 +695,16 @@ i {
   background-color: var(--color-white);
 }
 
+/* 🌙 DARK MODE - Contact Labels Active */
+body.dark .contact__input:focus ~ .contact__label,
+body.dark .contact__textarea:focus ~ .contact__label,
+body.dark .contact__input:not(:placeholder-shown) ~ .contact__label,
+body.dark .contact__textarea:not(:placeholder-shown) ~ .contact__label {
+  color: #2196f3;
+  background-color: var(--dark-bg-primary);
+  text-shadow: 0 0 10px rgba(33, 150, 243, 0.3);
+}
+
 .contact__input-focus {
   position: absolute;
   bottom: 0;
@@ -390,6 +713,11 @@ i {
   height: 2px;
   background-color: var(--color-primary);
   transition: all 0.3s ease;
+}
+
+/* 🌙 DARK MODE - Contact Input Focus Line */
+body.dark .contact__input-focus {
+  background: linear-gradient(90deg, #2196f3, #4caf50);
 }
 
 .contact__input:focus ~ .contact__input-focus,
@@ -417,6 +745,13 @@ i {
   font-family: var(--font-body);
 }
 
+/* 🌙 DARK MODE - Contact Submit Button */
+body.dark .contact__submit-btn {
+  background: linear-gradient(135deg, #2196f3, #1976d2);
+  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .contact__submit-btn::before {
   content: "";
   position: absolute;
@@ -438,6 +773,13 @@ i {
   transform: translateY(-3px);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* 🌙 DARK MODE - Contact Submit Button Hover */
+body.dark .contact__submit-btn:hover {
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+  transform: translateY(-5px);
 }
 
 .contact__submit-btn:hover::before {
@@ -477,6 +819,35 @@ i {
   text-align: center;
   animation: fadeIn 0.5s ease;
   font-family: var(--font-body);
+  transition: all var(--transition-duration-normal) ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🌙 DARK MODE - Contact Success Message */
+body.dark .contact__success-message {
+  background: rgba(76, 175, 80, 0.15);
+  border: 1px solid rgba(76, 175, 80, 0.4);
+  color: #4caf50;
+  backdrop-filter: blur(5px);
+  text-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+body.dark .contact__success-message::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(76, 175, 80, 0.2), transparent);
+  animation: shine 2s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
 }
 
 @keyframes fadeIn {
@@ -910,6 +1281,12 @@ i {
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Dark mode para la sección del mapa */
+body.dark .map-section {
+  background: linear-gradient(135deg, var(--dark-surface) 0%, var(--dark-background) 100%);
 }
 
 .map-section::before {
@@ -948,6 +1325,13 @@ i {
   position: relative;
   display: inline-block;
   font-family: var(--font-heading);
+  transition: all 0.3s ease;
+}
+
+/* Dark mode para el título del mapa */
+body.dark .map-section__title {
+  color: var(--dark-primary);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .map-section__title::after {
@@ -969,6 +1353,12 @@ i {
   margin: 0 auto;
   margin-top: 1.5rem;
   font-family: var(--font-body);
+  transition: all 0.3s ease;
+}
+
+/* Dark mode para el subtítulo del mapa */
+body.dark .map-section__subtitle {
+  color: var(--dark-text-secondary);
 }
 
 .map-section__content {
@@ -989,6 +1379,16 @@ i {
   overflow: hidden;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   min-height: 500px;
+  transition: all 0.3s ease;
+}
+
+/* Dark mode para el contenedor del mapa */
+body.dark .map-section__map-container {
+  background-color: var(--dark-surface);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 
+              0 10px 10px -5px rgba(0, 0, 0, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--dark-border);
 }
 
 .map-section__map {
@@ -1010,6 +1410,15 @@ i {
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   font-family: var(--font-body);
+  transition: all 0.3s ease;
+}
+
+/* Dark mode para el loading del mapa */
+body.dark .map-section__loading {
+  background: var(--dark-surface);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--dark-border);
 }
 
 .map-section__loading-spinner {
@@ -1027,6 +1436,12 @@ i {
   color: #64748b;
   font-weight: 500;
   font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+/* Dark mode para el texto del loading */
+body.dark .map-section__loading p {
+  color: var(--dark-text-secondary);
 }
 
 /* Controles personalizados */
@@ -1056,6 +1471,22 @@ i {
   font-size: 1rem;
 }
 
+/* Dark mode para los botones de control del mapa */
+body.dark .map-section__control-btn {
+  background: var(--dark-surface);
+  color: var(--dark-text);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--dark-border);
+}
+
+body.dark .map-section__control-btn:hover {
+  background: var(--dark-surface-hover);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
 .map-section__control-btn:hover {
   background: #f3f4f6;
   transform: scale(1.05);
@@ -1070,6 +1501,21 @@ i {
 .map-section__control-btn--active:hover {
   background: var(--color-primary);
   opacity: 0.9;
+}
+
+/* Dark mode para el botón activo */
+body.dark .map-section__control-btn--active {
+  background: var(--dark-primary);
+  color: var(--dark-background);
+  box-shadow: 0 2px 8px rgba(63, 131, 248, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+body.dark .map-section__control-btn--active:hover {
+  background: var(--dark-primary);
+  opacity: 0.9;
+  box-shadow: 0 4px 12px rgba(63, 131, 248, 0.5),
+              inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 /* Panel de información */
@@ -1091,6 +1537,26 @@ i {
   opacity: 0;
   transform: translateX(20px);
   animation: slideInLeft 0.6s ease forwards;
+}
+
+/* Dark mode para las tarjetas de información del mapa */
+body.dark .map-section__info-card {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--dark-border);
+  border-left: 4px solid var(--dark-primary);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 
+              0 4px 6px -2px rgba(0, 0, 0, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+body.dark .map-section__info-card:hover {
+  background: rgba(30, 41, 59, 0.8);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 
+              0 10px 10px -5px rgba(0, 0, 0, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border-left-color: var(--dark-secondary);
 }
 
 .map-section__info-card:nth-child(1) { animation-delay: 0.4s; }
@@ -1122,6 +1588,14 @@ i {
   flex-shrink: 0;
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Dark mode para el icono de información del mapa */
+body.dark .map-section__info-icon {
+  background: linear-gradient(135deg, var(--dark-primary), var(--dark-secondary));
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .map-section__info-icon::before {
@@ -1157,6 +1631,7 @@ i {
   font-size: 1.1rem;
   font-weight: 600;
   font-family: var(--font-heading);
+  transition: all 0.3s ease;
 }
 
 .map-section__info-content p {
@@ -1165,11 +1640,27 @@ i {
   font-size: 0.95rem;
   line-height: 1.5;
   font-family: var(--font-body);
+  transition: all 0.3s ease;
+}
+
+/* Dark mode para el contenido de información del mapa */
+body.dark .map-section__info-content h3 {
+  color: var(--dark-text);
+}
+
+body.dark .map-section__info-content p {
+  color: var(--dark-text-secondary);
 }
 
 .map-section__status-open {
   color: var(--color-secondary);
   font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Dark mode para el estado abierto */
+body.dark .map-section__status-open {
+  color: var(--dark-secondary);
 }
 
 .map-section__directions-btn {
@@ -1192,6 +1683,21 @@ i {
   background-color: var(--color-secondary);
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(51, 102, 204, 0.3);
+}
+
+/* Dark mode para el botón de direcciones */
+body.dark .map-section__directions-btn {
+  background: linear-gradient(135deg, var(--dark-primary), var(--dark-secondary));
+  color: var(--dark-background);
+  box-shadow: 0 4px 8px rgba(63, 131, 248, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+body.dark .map-section__directions-btn:hover {
+  background: linear-gradient(135deg, var(--dark-secondary), var(--dark-primary));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(63, 131, 248, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .map-section__directions-btn i {

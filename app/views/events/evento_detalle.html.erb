@@ -99,6 +99,14 @@
         <li class="header__menu-item">
           <%= link_to t('navigation.contacto'), contact_path, class: "header__menu-link" %>
         </li>
+
+        <!-- Dark-Mode toggle -->
+        <li class="header__menu-item">
+          <button id="toggle-dark" class="header__menu-link" style="background: none; border: none;">
+            <i id="theme-icon" class="fas fa-moon"></i>
+          </button>
+        </li>
+
       </ul>
     </nav>
 

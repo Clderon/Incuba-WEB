@@ -7,10 +7,32 @@
   --transition: all 0.3s ease;
 }
 
+/* Dark mode variables */
+body.dark {
+  --color-bg-primary: #0f0f0f;
+  --color-bg-secondary: #1a1a1a;
+  --color-bg-tertiary: #262626;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #e0e0e0;
+  --color-text-muted: #b3b3b3;
+  --color-accent: #00bcd4;
+  --color-accent-hover: #00acc1;
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Dark mode body styling */
+body.dark {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
 }
 
 /* About Section - BEM Methodology */
@@ -19,6 +41,15 @@
   background-color: var(--color-gray-100);
   overflow: hidden;
   margin-top: 90px;
+}
+
+/* Dark mode for about section */
+body.dark .about {
+  background-color: var(--color-bg-primary);
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(0, 188, 212, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 188, 212, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(0, 188, 212, 0.02) 0%, transparent 50%);
 }
 
 .about__container {
@@ -46,11 +77,23 @@
   margin-bottom: 15px;
 }
 
+/* Dark mode for about title */
+body.dark .about__title {
+  color: #ffffff !important;
+  filter: brightness(1.3) contrast(1.2);
+}
+
 .about__line {
   height: 5px;
   width: 80px;
   background: linear-gradient(    45deg,    var(--color-primary),    var(--color-secondary)  );
   margin: 0 auto;
+}
+
+/* Dark mode for about line */
+body.dark .about__line {
+  background: linear-gradient(45deg, var(--color-accent), var(--color-accent-hover));
+  box-shadow: 0 0 15px rgba(0, 188, 212, 0.4);
 }
 
 /* Section Styling */
@@ -137,11 +180,45 @@
   font-weight: 900;
 }
 
+/* Dark mode for content title */
+body.dark .about__content-title {
+  color: #ffffff !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
 .about__content-text {
   font-size: 1.6rem;
   margin-bottom: 15px;
   color: var(--color-dark);
   opacity: 0.8;
+}
+
+/* Dark mode for content text */
+body.dark .about__content-text {
+  color: #e0e0e0 !important;
+  opacity: 0.9;
+}
+
+/* Dark mode for vertical title */
+body.dark .about__vertical-title {
+  color: #e0e0e0 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+body.dark .about__vertical-title h2 {
+  color: #e0e0e0 !important;
+}
+
+/* Dark mode for icon wrapper and icon */
+body.dark .about__icon-wrapper {
+  background-color: var(--color-bg-tertiary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+body.dark .about__icon {
+  color: var(--color-accent);
+  filter: brightness(1.2);
 }
 
 .about__image-wrapper {
@@ -273,6 +350,14 @@
   padding: 4rem 0;
 }
 
+/* Dark mode for team section */
+body.dark .team {
+  background-color: var(--color-bg-secondary);
+  background-image: 
+    radial-gradient(circle at 30% 20%, rgba(0, 188, 212, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(0, 188, 212, 0.06) 0%, transparent 50%);
+}
+
 .card-group {
   display: flex;
   justify-content: center;
@@ -290,6 +375,21 @@
   box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px;
   transition: all 0.5s ease-in-out;
   border: 1px solid rgba(0, 0, 0, 0.1333333333);
+}
+
+/* Dark mode for cards */
+body.dark .card {
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-glass-border);
+  box-shadow: var(--shadow-dark);
+  backdrop-filter: blur(10px);
+}
+
+body.dark .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    var(--shadow-dark),
+    0 0 30px rgba(0, 188, 212, 0.2);
 }
 
 .card .mail {
@@ -313,6 +413,19 @@
   stroke: var(--color-gray-700);
 }
 
+/* Dark mode for card mail icon */
+body.dark .card .mail svg {
+  stroke: var(--color-text-secondary);
+}
+
+body.dark .card:hover svg {
+  stroke: var(--color-accent);
+}
+
+body.dark .card .mail svg:hover {
+  stroke: var(--color-accent-hover);
+}
+
 .card .profile-pic {
   position: absolute;
   width: calc(100% - 6px);
@@ -325,6 +438,18 @@
     linear-gradient(45deg, var(--color-primary), var(--color-secondary));
   overflow: hidden;
   transition: all 0.5s ease-in-out 0.2s, z-index 0.5s ease-in-out 0.2s;
+}
+
+/* Dark mode for profile pic border */
+body.dark .card .profile-pic {
+  border: 1px solid var(--color-glass-border);
+}
+
+body.dark .card:hover .profile-pic {
+  border: 3px solid var(--color-accent);
+  box-shadow: 
+    0 0 20px rgba(0, 188, 212, 0.4),
+    var(--shadow-glass);
 }
 
 .card .profile-pic img {

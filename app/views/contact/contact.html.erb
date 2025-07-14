@@ -48,7 +48,7 @@
         <nav class="header__nav" role="navigation" aria-label="Navegación principal">
           <ul class="header__menu">
             <!-- PROGRAMAS -->
-            <li class="header__menu-item header__menu-item--has-dropdown">
+            <li class="header__menu-item ">
                 <%= link_to t('navigation.programas'), programas_path, class: "header__menu-link", "aria-haspopup" => "true", "aria-expanded" => "false" %>
             </li>
 
@@ -125,6 +125,15 @@
             <li class="header__menu-item">
               <%= link_to t('navigation.contacto'), contact_path, class: "header__menu-link" %>
             </li>
+            <!-- Dark-Mode toggle -->
+            <li class="header__menu-item">
+              <button id="toggle-dark" class="header__menu-link" style="background: none; border: none;">
+                <i id="theme-icon" class="fas fa-moon"></i>
+              </button>
+            </li>
+
+
+
           </ul>
         </nav>
 
@@ -430,13 +439,13 @@
                     </div>
 
                     <form class="footer__subscribe" onsubmit="sendMail(event)">
-        <label for="emailInput" class="footer__label">Correo electrónico</label>
-        <input type="email" id="emailInput" class="footer__input" placeholder="Enter email" required>
-        
-        <button type="submit" class="footer__button">
-          <i class="fas fa-arrow-right"></i> Contacto
-        </button>
-      </form>
+                        <label for="emailInput" class="footer__label">Correo electrónico</label>
+                        <input type="email" id="emailInput" class="footer__input" placeholder="Enter email" required>
+                        
+                        <button type="submit" class="footer__button">
+                        <i class="fas fa-arrow-right"></i> Contacto
+                        </button>
+                    </form>
 
                     <div class="footer__social">
                         <a href="#" class="footer__social-link">

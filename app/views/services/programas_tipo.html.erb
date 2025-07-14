@@ -112,6 +112,13 @@
             <li class="header__menu-item">
               <%= link_to t('navigation.contacto'), contact_path, class: "header__menu-link" %>
             </li>
+
+            <!-- Dark-Mode toggle -->
+            <li class="header__menu-item">
+              <button id="toggle-dark" class="header__menu-link" style="background: none; border: none;">
+                <i id="theme-icon" class="fas fa-moon"></i>
+              </button>
+            </li>
           </ul>
         </nav>
 
@@ -491,12 +498,4 @@
     document.addEventListener('turbo:visit', initPage);
   }
   
-  // Asegurarse de que el scroll funcione correctamente
-  window.addEventListener('load', function() {
-    document.body.style.overflow = 'auto';
-    document.documentElement.style.overflow = 'auto';
-    
-    // Timeout extra para navegadores que puedan tener comportamiento tardío
-    setTimeout(initPage, 100);
-  });
 </script>

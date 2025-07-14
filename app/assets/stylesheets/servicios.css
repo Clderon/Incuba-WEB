@@ -1,4 +1,4 @@
-  /* Variables */
+/* Variables */
   :root {
     --azul: #000099;
     --azul-hover: #0000cc;
@@ -505,4 +505,53 @@
     .servicio-content h2 {
       font-size: 1.5rem;
     }
+  }
+
+  /* DARK MODE - SECCIÓN 1: RESET BÁSICO Y ELEMENTOS DECORATIVOS */
+  
+  /* Body y HTML en dark mode */
+  body.dark,
+  body.dark html {
+    background-color: #0f0f0f !important;
+    color: #e0e0e0 !important;
+  }
+
+  /* Elementos decorativos de fondo en dark mode */
+  body.dark .background-decoration {
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #121212 100%) !important;
+  }
+
+  body.dark .bg-circle {
+    opacity: 0.15 !important;
+    filter: blur(80px) !important;
+  }
+
+  body.dark .bg-circle-1 {
+    background: linear-gradient(135deg, #1e40af, #1e3a8a) !important;
+    opacity: 0.12 !important;
+  }
+
+  body.dark .bg-circle-2 {
+    background: linear-gradient(135deg, #059669, #047857) !important;
+    opacity: 0.08 !important;
+  }
+
+  body.dark .bg-circle-3 {
+    background: linear-gradient(135deg, #d97706, #b45309) !important;
+    opacity: 0.06 !important;
+  }
+
+  body.dark .bg-dots {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px) !important;
+    opacity: 0.3 !important;
+  }
+
+  body.dark .bg-line {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0) 100%
+    ) !important;
+    opacity: 0.4 !important;
   }

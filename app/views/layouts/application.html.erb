@@ -45,6 +45,44 @@
   <%= csp_meta_tag %>
 </head>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggleBtn = document.getElementById('toggle-dark');
+    const body = document.body;
+    const icon = document.getElementById('theme-icon');
+
+    // Aplica el tema guardado
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark');
+      if (icon) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      }
+    }
+
+    toggleBtn.addEventListener('click', function () {
+      const isDark = body.classList.toggle('dark');
+
+      if (isDark) {
+        localStorage.setItem('theme', 'dark');
+        if (icon) {
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+        }
+      } else {
+        localStorage.setItem('theme', 'light');
+        if (icon) {
+          icon.classList.remove('fa-sun');
+          icon.classList.add('fa-moon');
+        }
+      }
+    });
+  });
+</script>
+
+
+
+
 <body class="<%= controller_name %>-page <%= action_name %>-action">
   <%= yield %>
   

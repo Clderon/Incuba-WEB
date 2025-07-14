@@ -62,6 +62,23 @@
   --z-index-modal: 400;
 }
 
+/* Dark mode variables */
+body.dark {
+  --color-bg-primary: #0f0f0f;
+  --color-bg-secondary: #1a1a1a;
+  --color-bg-terciario: #262626;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #e0e0e0;
+  --color-text-muted: #b3b3b3;
+  --color-accent: #00bcd4;
+  --color-accent-hover: #00acc1;
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-mentor-card: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
 /* 
   ==========================================
           RESET Y ESTILOS GENERALES
@@ -77,6 +94,12 @@ body {
   font-family: var(--font-body);
   color: var(--color-gray-900);
   overflow-x: hidden;
+}
+
+/* Dark mode body styling */
+body.dark {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
 }
 
 a {
@@ -116,11 +139,37 @@ i {
   min-height: 100vh;
 }
 
+/* Dark mode for main content */
+body.dark .main-content {
+  background-color: var(--color-bg-primary);
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(0, 188, 212, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(0, 188, 212, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(0, 188, 212, 0.02) 0%, transparent 70%);
+}
+
 /* Mentores Section */
 .mentores {
   max-width: 1200px;
   margin: 150px auto;
   padding: 0 20px;
+}
+
+/* Dark mode for mentores section */
+body.dark .mentores {
+  position: relative;
+}
+
+body.dark .mentores::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  opacity: 0.6;
 }
 
 .mentores__title {
@@ -135,6 +184,12 @@ i {
   margin-top: 8rem;
 }
 
+/* Dark mode for mentores title */
+body.dark .mentores__title {
+  color: var(--color-text-primary);
+  filter: brightness(1.2);
+}
+
 .mentores__title::after {
   content: "";
   position: absolute;
@@ -147,6 +202,14 @@ i {
   border-radius: 2px;
 }
 
+/* Dark mode for title line */
+body.dark .mentores__title::after {
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-hover));
+  box-shadow: 
+    0 0 20px rgba(0, 188, 212, 0.6),
+    0 0 40px rgba(0, 188, 212, 0.3);
+}
+
 .mentores__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
@@ -154,10 +217,24 @@ i {
   margin-bottom: 4rem;
 }
 
+/* Dark mode for mentores grid */
+body.dark .mentores__grid {
+  gap: 2.5rem;
+}
+
 /* Mentor Card */
 .mentor-card {
   perspective: 1000px;
   height: 350px;
+}
+
+/* Dark mode for mentor card */
+body.dark .mentor-card {
+  filter: drop-shadow(0 0 20px rgba(0, 188, 212, 0.1));
+}
+
+body.dark .mentor-card:hover {
+  filter: drop-shadow(0 0 30px rgba(0, 188, 212, 0.3));
 }
 
 .mentor-card__inner {
@@ -169,6 +246,19 @@ i {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
   border-radius: 12px;
+}
+
+/* Dark mode for mentor card inner */
+body.dark .mentor-card__inner {
+  box-shadow: var(--shadow-mentor-card);
+  border: 1px solid var(--color-glass-border);
+}
+
+body.dark .mentor-card:hover .mentor-card__inner {
+  box-shadow: 
+    var(--shadow-mentor-card),
+    0 0 40px rgba(0, 188, 212, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .mentor-card:hover .mentor-card__inner {
@@ -185,6 +275,13 @@ i {
   overflow: hidden;
 }
 
+/* Dark mode for card faces base */
+body.dark .mentor-card__front,
+body.dark .mentor-card__back {
+  border: 1px solid var(--color-glass-border);
+  backdrop-filter: blur(10px);
+}
+
 .mentor-card__front {
   background-color: #e0f2fe;
   display: flex;
@@ -193,16 +290,13 @@ i {
   padding: 2rem;
 }
 
-.mentor-card__back {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  transform: rotateY(180deg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  text-align: center;
+/* Dark mode for front card */
+body.dark .mentor-card__front {
+  background: linear-gradient(135deg, var(--color-bg-tertiary) 0%, var(--color-bg-secondary) 100%);
+  background-image: 
+    radial-gradient(circle at 30% 30%, rgba(0, 188, 212, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(0, 188, 212, 0.05) 0%, transparent 50%);
+  border: 1px solid var(--color-glass-border);
 }
 
 .mentor-card__image-container {
@@ -216,6 +310,34 @@ i {
   transition: transform 0.3s ease;
 }
 
+/* Dark mode for image container */
+body.dark .mentor-card__image-container {
+  border: 3px solid var(--color-glass-border);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(0, 188, 212, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+body.dark .mentor-card__image-container::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--color-accent), transparent, var(--color-accent-hover));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+body.dark .mentor-card:hover .mentor-card__image-container::before {
+  opacity: 0.6;
+}
+
 .mentor-card:hover .mentor-card__image-container {
   transform: scale(1.05);
 }
@@ -224,6 +346,11 @@ i {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Dark mode for image */
+body.dark .mentor-card__image {
+  filter: brightness(1.1) contrast(1.1);
 }
 
 .mentor-card__info {
@@ -238,10 +365,46 @@ i {
   font-family: var(--font-heading);
 }
 
+/* Dark mode for mentor name */
+body.dark .mentor-card__name {
+  color: var(--color-text-primary);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
 .mentor-card__role {
   color: #64748b;
   font-size: 1.4rem;
   font-family: var(--font-body);
+}
+
+/* Dark mode for mentor role */
+body.dark .mentor-card__role {
+  color: var(--color-text-secondary);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.mentor-card__back {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Dark mode for back card */
+body.dark .mentor-card__back {
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 20px rgba(0, 188, 212, 0.3);
 }
 
 .mentor-card__back .mentor-card__name {
@@ -250,11 +413,27 @@ i {
   font-size: 2.3rem;
 }
 
+/* Dark mode for back card name */
+body.dark .mentor-card__back .mentor-card__name {
+  color: var(--color-text-primary);
+  text-shadow: 
+    0 2px 12px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.2);
+  filter: brightness(1.1);
+}
+
 .mentor-card__description {
   margin-bottom: 1.5rem;
   font-size: 1.4rem;
   line-height: 1.5;
   font-family: var(--font-body);
+}
+
+/* Dark mode for description */
+body.dark .mentor-card__description {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+  line-height: 1.6;
 }
 
 .mentor-card__social {
@@ -276,13 +455,39 @@ i {
   transition: all 0.3s ease;
 }
 
+/* Dark mode for social links */
+body.dark .mentor-card__social-link {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
 .mentor-card__social-link:hover {
   background-color: var(--color-secondary);
   transform: translateY(-3px);
 }
 
+/* Dark mode for social links hover */
+body.dark .mentor-card__social-link:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-accent);
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(255, 255, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
 .mentor-card__social-link i {
   font-size: 2.2rem;
+}
+
+/* Dark mode for social icons */
+body.dark .mentor-card__social-link i {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 /* Responsive */
@@ -291,17 +496,43 @@ i {
     padding-top: 100px;
   }
   
+  /* Dark mode responsive for tablet */
+  body.dark .main-content {
+    background-image: 
+      radial-gradient(circle at 30% 20%, rgba(0, 188, 212, 0.04) 0%, transparent 60%),
+      radial-gradient(circle at 70% 80%, rgba(0, 188, 212, 0.06) 0%, transparent 60%);
+  }
+  
   .mentores {
     margin: 30px auto;
     padding: 0 15px;
+  }
+  
+  /* Dark mode for mentores section on tablet */
+  body.dark .mentores::before {
+    width: 150px;
+    top: -30px;
   }
   
   .mentores__title {
     font-size: 2rem;
   }
   
+  /* Dark mode title responsive */
+  body.dark .mentores__title {
+    text-shadow: 
+      0 0 20px rgba(0, 188, 212, 0.5),
+      0 0 40px rgba(0, 188, 212, 0.3),
+      1px 1px 6px rgba(0, 0, 0, 0.8);
+  }
+  
   .mentores__grid {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  /* Dark mode grid responsive */
+  body.dark .mentores__grid {
+    gap: 2rem;
   }
 
   .mentor-card {
@@ -312,11 +543,36 @@ i {
     width: 120px;
     height: 120px;
   }
+  
+  /* Dark mode image container responsive */
+  body.dark .mentor-card__image-container {
+    border: 2px solid var(--color-glass-border);
+    box-shadow: 
+      0 6px 20px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(0, 188, 212, 0.15);
+  }
 }
 
 @media (max-width: 480px) {
   .mentores__title {
     font-size: 1.8rem;
+  }
+  
+  /* Dark mode title mobile */
+  body.dark .mentores__title {
+    text-shadow: 
+      0 0 15px rgba(0, 188, 212, 0.6),
+      0 0 30px rgba(0, 188, 212, 0.4),
+      1px 1px 4px rgba(0, 0, 0, 0.9);
+    filter: brightness(1.3);
+  }
+  
+  body.dark .mentores__title::after {
+    width: 60px;
+    height: 3px;
+    box-shadow: 
+      0 0 15px rgba(0, 188, 212, 0.7),
+      0 0 30px rgba(0, 188, 212, 0.4);
   }
 
   .mentores__grid {
@@ -325,7 +581,123 @@ i {
     margin: 0 auto;
   }
   
+  /* Dark mode grid mobile */
+  body.dark .mentores__grid {
+    gap: 1.5rem;
+    max-width: 350px;
+  }
+  
   .mentor-card {
     height: 320px;
+  }
+  
+  /* Dark mode cards mobile */
+  body.dark .mentor-card {
+    filter: drop-shadow(0 0 15px rgba(0, 188, 212, 0.15));
+  }
+  
+  body.dark .mentor-card:hover {
+    filter: drop-shadow(0 0 25px rgba(0, 188, 212, 0.4));
+  }
+  
+  /* Dark mode front card mobile */
+  body.dark .mentor-card__front {
+    padding: 1.5rem;
+    background-image: 
+      radial-gradient(circle at 50% 30%, rgba(0, 188, 212, 0.12) 0%, transparent 60%);
+  }
+  
+  /* Dark mode back card mobile */
+  body.dark .mentor-card__back {
+    padding: 1.5rem;
+    background-image: 
+      radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.12) 0%, transparent 60%),
+      radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+  }
+  
+  /* Dark mode image container mobile */
+  body.dark .mentor-card__image-container {
+    width: 100px;
+    height: 100px;
+    border: 2px solid var(--color-glass-border);
+    box-shadow: 
+      0 4px 15px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(0, 188, 212, 0.2);
+  }
+  
+  /* Dark mode text mobile */
+  body.dark .mentor-card__name {
+    font-size: 1.6rem;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+  }
+  
+  body.dark .mentor-card__role {
+    font-size: 1.2rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  }
+  
+  body.dark .mentor-card__back .mentor-card__name {
+    font-size: 2rem;
+    text-shadow: 
+      0 2px 10px rgba(0, 0, 0, 0.9),
+      0 0 15px rgba(255, 255, 255, 0.3);
+  }
+  
+  body.dark .mentor-card__description {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Dark mode social links mobile */
+  body.dark .mentor-card__social-link {
+    width: 35px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 
+      0 3px 12px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  }
+  
+  body.dark .mentor-card__social-link:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 
+      0 6px 20px rgba(0, 0, 0, 0.5),
+      0 0 15px rgba(255, 255, 255, 0.4);
+  }
+  
+  body.dark .mentor-card__social-link i {
+    font-size: 1.8rem;
+  }
+}
+
+/* Extra small devices ≤ 360px */
+@media (max-width: 360px) {
+  body.dark .mentores__grid {
+    max-width: 300px;
+    gap: 1rem;
+  }
+  
+  body.dark .mentor-card__front,
+  body.dark .mentor-card__back {
+    padding: 1rem;
+  }
+  
+  body.dark .mentor-card__image-container {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+  }
+  
+  body.dark .mentor-card__name {
+    font-size: 1.4rem;
+  }
+  
+  body.dark .mentor-card__back .mentor-card__name {
+    font-size: 1.8rem;
+  }
+  
+  body.dark .mentor-card__description {
+    font-size: 1.1rem;
   }
 }

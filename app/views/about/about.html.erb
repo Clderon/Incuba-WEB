@@ -37,7 +37,7 @@
         <nav class="header__nav" role="navigation" aria-label="Navegación principal">
           <ul class="header__menu">
             <!-- PROGRAMAS -->
-            <li class="header__menu-item header__menu-item--has-dropdown">
+            <li class="header__menu-item ">
                 <%= link_to t('navigation.programas'), programas_path, class: "header__menu-link", "aria-haspopup" => "true", "aria-expanded" => "false" %>
             </li>
 
@@ -83,13 +83,13 @@
               <div class="header__dropdown" role="menu">
                 <ul class="header__dropdown-menu">
                   <li class="header__dropdown-item">
-                    <a href="#nuestroEquipo" class="header__dropdown-link" role="menuitem">Nuestro Equipo</a>
+                    <a href="/about#nuestroEquipo" class="header__dropdown-link" role="menuitem">Nuestro Equipo</a>
                   </li>
                   <li class="header__dropdown-item">
-                    <a href="#valores" class="header__dropdown-link" role="menuitem">Valores</a>
+                    <a href="/about#valores" class="header__dropdown-link" role="menuitem">Valores</a>
                   </li>
                   <li class="header__dropdown-item">
-                    <a href="#nuestraHistoria" class="header__dropdown-link" role="menuitem">Nuestra Historia</a>
+                    <a href="/about#nuestraHistoria" class="header__dropdown-link" role="menuitem">Nuestra Historia</a>
                   </li>
                 </ul>
               </div>
@@ -114,6 +114,13 @@
             <li class="header__menu-item">
               <%= link_to t('navigation.contacto'), contact_path, class: "header__menu-link" %>
             </li>
+            <!-- Dark-Mode toggle -->
+            <li class="header__menu-item">
+              <button id="toggle-dark" class="header__menu-link" style="background: none; border: none;">
+                <i id="theme-icon" class="fas fa-moon"></i>
+              </button>
+            </li>
+
           </ul>
         </nav>
 
@@ -571,7 +578,7 @@
           <div class="timeline__marker"></div>
           <div class="timeline__content">
             <div class="timeline__date">2010</div>
-            <h3 class="timeline__title" style="color: #135e58; background-color: #f8f9fa;">
+            <h3 class="timeline__title" ">
               Fundación
             </h3>
             <p class="timeline__subtitle">Inicio de operaciones en un pequeño local</p>
@@ -591,7 +598,7 @@
           <div class="timeline__marker"></div>
           <div class="timeline__content">
             <div class="timeline__date">2013</div>
-            <h3 class="timeline__title" style="color: #135e58; background-color: #f8f9fa;">
+            <h3 class="timeline__title" ">
               Expansión Nacional
             </h3>
             <p class="timeline__subtitle">Apertura de oficinas en 5 ciudades principales</p>
@@ -611,7 +618,7 @@
           <div class="timeline__marker"></div>
           <div class="timeline__content">
             <div class="timeline__date">2016</div>
-            <h3 class="timeline__title" style="color: #135e58; background-color: #f8f9fa;">
+            <h3 class="timeline__title" ">
               Innovación Tecnológica
             </h3>
             <p class="timeline__subtitle">Lanzamiento de nuestra plataforma digital</p>
@@ -631,7 +638,7 @@
           <div class="timeline__marker"></div>
           <div class="timeline__content">
             <div class="timeline__date">2019</div>
-            <h3 class="timeline__title" style="color: #135e58; background-color: #f8f9fa;">
+            <h3 class="timeline__title" ">
               Expansión Internacional
             </h3>
             <p class="timeline__subtitle">Apertura de oficinas en 3 continentes</p>
@@ -651,7 +658,7 @@
           <div class="timeline__marker"></div>
           <div class="timeline__content">
             <div class="timeline__date">2022</div>
-            <h3 class="timeline__title" style="color: #135e58; background-color: #f8f9fa;">
+            <h3 class="timeline__title" ">
               Sostenibilidad
             </h3>
             <p class="timeline__subtitle">Implementación de iniciativas verdes</p>

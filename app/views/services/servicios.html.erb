@@ -46,87 +46,96 @@
     </div>
 
     <nav class="header__nav" role="navigation" aria-label="Navegación principal">
-      <ul class="header__menu">
-        <!-- PROGRAMAS -->
-        <li class="header__menu-item header__menu-item--has-dropdown">
-          <%= link_to t('navigation.programas'), programas_path, class: "header__menu-link", "aria-haspopup" => "true", "aria-expanded" => "false" %>
-        </li>
+          <ul class="header__menu">
+            <!-- PROGRAMAS -->
+            <li class="header__menu-item ">
+                <%= link_to t('navigation.programas'), programas_path, class: "header__menu-link", "aria-haspopup" => "true", "aria-expanded" => "false" %>
+            </li>
 
-        <!-- EVENTOS -->
-        <li class="header__menu-item header__menu-item--has-dropdown">
-          <%= link_to t('navigation.eventos'), eventos_path, class: "header__menu-link", "aria-haspopup" => "true", "aria-expanded" => "false" %>
-          <div class="header__dropdown" role="menu">
-            <ul class="header__dropdown-menu">
-              <li class="header__dropdown-item">
-                <a href="eventos/#proximosEventos" class="header__dropdown-link" role="menuitem">Próximos Eventos</a>
-              </li>
-              <li class="header__dropdown-item">
-                <a href="eventos/#eventosPasados" class="header__dropdown-link" role="menuitem">Eventos Pasados</a>
-              </li>
-            </ul>
-          </div>
-        </li>
+            <!-- EVENTOS -->
+            <li class="header__menu-item header__menu-item--has-dropdown">
+              <%= link_to t('navigation.eventos'), eventos_path, class: "header__menu-link", "aria-haspopup" => "true", "aria-expanded" => "false" %>
+              <div class="header__dropdown" role="menu">
+                <ul class="header__dropdown-menu">
+                  <li class="header__dropdown-item">
+                    <a href="eventos/#proximosEventos" class="header__dropdown-link" role="menuitem">Próximos Eventos</a>
+                  </li>
+                  <li class="header__dropdown-item">
+                    <a href="eventos/#eventosPasados" class="header__dropdown-link" role="menuitem">Eventos Pasados</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
 
-        <!-- SERVICIOS -->
-        <li class="header__menu-item header__menu-item--has-dropdown">
-          <%= link_to t('navigation.servicios'), servicios_path, class: "header__menu-link", "aria-haspopup" => "true", "aria-expanded" => "false" %>
-          <div class="header__dropdown" role="menu">
-            <ul class="header__dropdown-menu">
-              <li class="header__dropdown-item">
-                <a href="/servicios/preincubacion" class="header__dropdown-link" role="menuitem">Preincubación</a>
-              </li>
-              <li class="header__dropdown-item">
-                <a href="/servicios/incubacion" class="header__dropdown-link" role="menuitem">Incubación</a>
-              </li>
-              <li class="header__dropdown-item">
-                <a href="/servicios/innovacion" class="header__dropdown-link" role="menuitem">Open Innovation</a>
-              </li>
-              <li class="header__dropdown-item">
-                <a href="#otrosSection" class="header__dropdown-link" role="menuitem">Otros</a>
-              </li>
-            </ul>
-          </div>
-        </li>
+            <!-- SERVICIOS -->
+            <li class="header__menu-item header__menu-item--has-dropdown">
+              <%= link_to t('navigation.servicios'), servicios_path, class: "header__menu-link", "aria-haspopup" => "true", "aria-expanded" => "false" %>
+              <div class="header__dropdown" role="menu">
+                <ul class="header__dropdown-menu">
+                  <li class="header__dropdown-item">
+                    <a href="/servicios/preincubacion" class="header__dropdown-link" role="menuitem">Preincubación</a>
+                  </li>
+                  <li class="header__dropdown-item">
+                    <a href="/servicios/incubacion" class="header__dropdown-link" role="menuitem">Incubación</a>
+                  </li>
+                  <li class="header__dropdown-item">
+                    <a href="/servicios/innovacion" class="header__dropdown-link" role="menuitem">Open Innovation</a>
+                  </li>
+                  <li class="header__dropdown-item">
+                    <a href="servicios/#otrosSection" class="header__dropdown-link" role="menuitem">Otros</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
 
-        <!-- NOSOTROS -->
-        <li class="header__menu-item header__menu-item--has-dropdown">
-          <%= link_to t('navigation.nosotros'), about_path, class: "header__menu-link", "aria-haspopup" => "true", "aria-expanded" => "false" %>
-          <div class="header__dropdown" role="menu">
-            <ul class="header__dropdown-menu">
-              <li class="header__dropdown-item">
-                <a href="/about#nuestroEquipo" class="header__dropdown-link" role="menuitem">Nuestro Equipo</a>
-              </li>
-              <li class="header__dropdown-item">
-                <a href="/about#valores" class="header__dropdown-link" role="menuitem">Valores</a>
-              </li>
-              <li class="header__dropdown-item">
-                <a href="/about#nuestraHistoria" class="header__dropdown-link" role="menuitem">Nuestra Historia</a>
-              </li>
-            </ul>
-          </div>
-        </li>
+            <!-- NOSOTROS -->
+            <li class="header__menu-item header__menu-item--has-dropdown">
+              <%= link_to t('navigation.nosotros'), about_path, class: "header__menu-link", "aria-haspopup" => "true", "aria-expanded" => "false" %>
+              <div class="header__dropdown" role="menu">
+                <ul class="header__dropdown-menu">
+                  <li class="header__dropdown-item">
+                    <a href="/about#nuestroEquipo" class="header__dropdown-link" role="menuitem">Nuestro Equipo</a>
+                  </li>
+                  <li class="header__dropdown-item">
+                    <a href="/about#valores" class="header__dropdown-link" role="menuitem">Valores</a>
+                  </li>
+                  <li class="header__dropdown-item">
+                    <a href="/about#nuestraHistoria" class="header__dropdown-link" role="menuitem">Nuestra Historia</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
 
-        <!-- MENTORES -->
-        <li class="header__menu-item header__menu-item--has-dropdown">
-          <%= link_to t('navigation.mentores'), mentores_path, class: "header__menu-link", "aria-haspopup" => "true", "aria-expanded" => "false" %>
-          <div class="header__dropdown" role="menu">
-            <ul class="header__dropdown-menu">
-              <li class="header__dropdown-item">
-                <a href="/mentores#unas" class="header__dropdown-link" role="menuitem">De la UNAS</a>
-              </li>
-              <li class="header__dropdown-item">
-                <a href="/mentores#instituciones" class="header__dropdown-link" role="menuitem">Otras Instituciones</a>
-              </li>
-            </ul>
-          </div>
-        </li>
+            <!-- MENTORES -->
+            <li class="header__menu-item header__menu-item--has-dropdown">
+              <%= link_to t('navigation.mentores'), mentores_path, class: "header__menu-link", "aria-haspopup" => "true", "aria-expanded" => "false" %>
+              <div class="header__dropdown" role="menu">
+                <ul class="header__dropdown-menu">
+                  <li class="header__dropdown-item">
+                    <a href="/mentores#unas" class="header__dropdown-link" role="menuitem">De la UNAS</a>
+                  </li>
+                  <li class="header__dropdown-item">
+                    <a href="/mentores#instituciones" class="header__dropdown-link" role="menuitem">Otras Instituciones</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
 
-        <!-- CONTACTO -->
-        <li class="header__menu-item">
-          <%= link_to t('navigation.contacto'), contact_path, class: "header__menu-link" %>
-        </li>
-      </ul>
-    </nav>
+            <!-- CONTACTO -->
+            <li class="header__menu-item">
+              <%= link_to t('navigation.contacto'), contact_path, class: "header__menu-link" %>
+            </li>
+            <!-- Dark-Mode toggle -->
+            <li class="header__menu-item">
+              <button id="toggle-dark" class="header__menu-link" style="background: none; border: none;">
+                <i id="theme-icon" class="fas fa-moon"></i>
+              </button>
+            </li>
+
+
+
+          </ul>
+        </nav>
 
     <!-- LOGIN Y SELECTOR DE IDIOMA DESKTOP + LOGIN MÓVIL -->
     <div class="header__actions">
@@ -338,8 +347,6 @@
     padding: 0;
     width: 100%;
     min-height: 100vh;
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
     background-color: var(--fondo);
     position: relative;
     font-family: 'Poppins', sans-serif;
@@ -825,6 +832,297 @@
       font-size: 1.5rem;
     }
   }
+
+  /* DARK MODE - SECCIÓN 1: RESET BÁSICO Y ELEMENTOS DECORATIVOS */
+  
+  /* Body y HTML en dark mode */
+  body.dark,
+  body.dark html {
+    background-color: #0f0f0f !important;
+    color: #e0e0e0 !important;
+  }
+
+  /* Elementos decorativos de fondo en dark mode */
+  body.dark .background-decoration {
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #121212 100%) !important;
+  }
+
+  body.dark .bg-circle {
+    opacity: 0.15 !important;
+    filter: blur(80px) !important;
+  }
+
+  body.dark .bg-circle-1 {
+    background: linear-gradient(135deg, #1e40af, #1e3a8a) !important;
+    opacity: 0.12 !important;
+  }
+
+  body.dark .bg-circle-2 {
+    background: linear-gradient(135deg, #059669, #047857) !important;
+    opacity: 0.08 !important;
+  }
+
+  body.dark .bg-circle-3 {
+    background: linear-gradient(135deg, #d97706, #b45309) !important;
+    opacity: 0.06 !important;
+  }
+
+  body.dark .bg-dots {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px) !important;
+    opacity: 0.3 !important;
+  }
+
+  body.dark .bg-line {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0) 100%
+    ) !important;
+    opacity: 0.4 !important;
+  }
+
+  /* DARK MODE - SECCIÓN 2: CONTENEDOR PRINCIPAL Y HERO */
+  
+  /* Contenedor principal */
+  body.dark .servicios-container {
+    background: linear-gradient(
+      135deg,
+      rgba(18, 18, 18, 0.95),
+      rgba(30, 30, 30, 0.9)
+    ) !important;
+    border-radius: 20px !important;
+    padding: 40px 20px !important;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(55, 65, 81, 0.6) !important;
+  }
+
+  /* Hero section */
+  body.dark .hero-badge {
+    background: linear-gradient(135deg, #1e40af, #1d4ed8) !important;
+    border: 1px solid rgba(59, 130, 246, 0.4) !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
+  }
+
+  body.dark .hero-servicios h1 {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    text-shadow: 0 4px 12px rgba(59, 130, 246, 0.3) !important;
+  }
+
+  body.dark .hero-servicios h1::after {
+    background: linear-gradient(135deg, #10b981, #34d399) !important;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4) !important;
+  }
+
+  body.dark .hero-servicios p {
+    color: #b0b0b0 !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  /* DARK MODE - SECCIÓN 3: TARJETAS DE SERVICIOS */
+  
+  /* Tarjetas principales */
+  body.dark .servicio-card {
+    background: rgba(30, 30, 30, 0.95) !important;
+    border: 1px solid rgba(55, 65, 81, 0.4) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(10px) !important;
+  }
+
+  body.dark .servicio-card:hover {
+    background: rgba(40, 40, 40, 0.98) !important;
+    border-color: rgba(59, 130, 246, 0.5) !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7) !important;
+    transform: translateY(-8px) !important;
+  }
+
+  body.dark .servicio-card::before {
+    background: linear-gradient(to bottom, #3b82f6, #10b981) !important;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3) !important;
+  }
+
+  /* Imágenes y overlays */
+  body.dark .imagen-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.8)
+    ) !important;
+  }
+
+  body.dark .servicio-card:hover .imagen-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.6)
+    ) !important;
+  }
+
+  /* Badges en las imágenes */
+  body.dark .servicio-badge {
+    background: rgba(30, 30, 30, 0.95) !important;
+    color: #3b82f6 !important;
+    border: 1px solid rgba(59, 130, 246, 0.4) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: blur(8px) !important;
+  }
+
+  /* Fondos de categorías en dark mode */
+  body.dark .preincubacion-bg {
+    background-color: rgba(59, 130, 246, 0.15) !important;
+    border: 1px solid rgba(59, 130, 246, 0.2) !important;
+  }
+
+  body.dark .incubacion-bg {
+    background-color: rgba(16, 185, 129, 0.15) !important;
+    border: 1px solid rgba(16, 185, 129, 0.2) !important;
+  }
+
+  body.dark .innovacion-bg {
+    background-color: rgba(245, 158, 11, 0.15) !important;
+    border: 1px solid rgba(245, 158, 11, 0.2) !important;
+  }
+
+  /* Contenido de las tarjetas */
+  body.dark .servicio-content {
+    background: transparent !important;
+  }
+
+  body.dark .servicio-content h2 {
+    color: #e0e0e0 !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  body.dark .servicio-card:hover .servicio-content h2 {
+    color: #3b82f6 !important;
+    text-shadow: 0 2px 12px rgba(59, 130, 246, 0.4) !important;
+  }
+
+  body.dark .servicio-content p {
+    color: #b0b0b0 !important;
+  }
+
+  /* Features list */
+  body.dark .servicio-features li {
+    color: #d1d5db !important;
+  }
+
+  body.dark .servicio-features li:hover {
+    color: #f3f4f6 !important;
+    transform: translateX(8px) !important;
+  }
+
+  body.dark .feature-icon {
+    background: linear-gradient(135deg, #10b981, #059669) !important;
+    border: 1px solid rgba(16, 185, 129, 0.3) !important;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3) !important;
+  }
+
+  /* Botones */
+  body.dark .btn-ver-programas {
+    background: linear-gradient(135deg, #1e40af, #1d4ed8) !important;
+    border: 1px solid rgba(59, 130, 246, 0.4) !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
+  }
+
+  body.dark .btn-ver-programas:hover {
+    background: linear-gradient(135deg, #2563eb, #3b82f6) !important;
+    border-color: rgba(59, 130, 246, 0.6) !important;
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4) !important;
+    transform: translateY(-3px) !important;
+  }
+
+  body.dark .btn-ver-programas:hover i {
+    transform: translateX(8px) !important;
+    color: #ffffff !important;
+  }
+
+  /* DARK MODE - SECCIÓN 4: EXTRA SECTION Y BENEFIT CARDS */
+  
+  /* Sección extra principal */
+  body.dark .extra-section {
+    background: rgba(30, 30, 30, 0.95) !important;
+    border: 1px solid rgba(55, 65, 81, 0.4) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(15px) !important;
+  }
+
+  body.dark .extra-section::before {
+    background: linear-gradient(to right, #3b82f6, #10b981) !important;
+    height: 6px !important;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4) !important;
+  }
+
+  /* Contenido de la sección extra */
+  body.dark .extra-section h2 {
+    color: #e0e0e0 !important;
+    text-shadow: 0 3px 10px rgba(59, 130, 246, 0.3) !important;
+  }
+
+  body.dark .extra-section p {
+    color: #b0b0b0 !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  /* Tarjetas de beneficios */
+  body.dark .benefit-card {
+    background: rgba(40, 40, 40, 0.9) !important;
+    border: 1px solid rgba(55, 65, 81, 0.4) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: blur(8px) !important;
+  }
+
+  body.dark .benefit-card:hover {
+    background: rgba(50, 50, 50, 0.95) !important;
+    border-color: rgba(59, 130, 246, 0.5) !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4) !important;
+    transform: translateY(-8px) !important;
+  }
+
+  /* Iconos de beneficios */
+  body.dark .benefit-icon {
+    background: linear-gradient(135deg, #1e40af, #3b82f6) !important;
+    border: 2px solid rgba(59, 130, 246, 0.4) !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
+  }
+
+  body.dark .benefit-card:hover .benefit-icon {
+    background: linear-gradient(135deg, #2563eb, #60a5fa) !important;
+    border-color: rgba(59, 130, 246, 0.6) !important;
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4) !important;
+    transform: scale(1.05) !important;
+  }
+
+  body.dark .benefit-icon i {
+    color: #ffffff !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  /* Texto de las tarjetas de beneficios */
+  body.dark .benefit-card h3 {
+    color: #e0e0e0 !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  body.dark .benefit-card:hover h3 {
+    color: #60a5fa !important;
+    text-shadow: 0 2px 8px rgba(96, 165, 250, 0.3) !important;
+  }
+
+  body.dark .benefit-card p {
+    color: #b0b0b0 !important;
+  }
+
+  body.dark .benefit-card:hover p {
+    color: #d1d5db !important;
+  }
+
+  // ...existing code...
 </style>
 
 <!-- Script mejorado -->
@@ -931,13 +1229,4 @@
     document.addEventListener('turbo:visit', ensureVisibility);
   }
   
-  // Asegurarse de que el scroll funcione correctamente
-  window.addEventListener('load', function() {
-    document.body.style.overflow = 'auto';
-    document.documentElement.style.overflow = 'auto';
-    ensureVisibility();
-    
-    // Timeout extra para navegadores que puedan tener comportamiento tardío
-    setTimeout(ensureVisibility, 100);
-  });
 </script>
